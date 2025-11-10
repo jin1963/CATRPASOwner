@@ -1,0 +1,40 @@
+body {
+  background-color: #000;
+  color: #ffd700;
+  font-family: "Prompt", sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  border: 1px solid #ffd700;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+input, select {
+  display: block;
+  width: 100%;
+  margin: 5px 0 10px 0;
+  padding: 8px;
+  background: #111;
+  color: #ffd700;
+  border: 1px solid #ffd700;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #ffd700;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #e6c200;
+}
