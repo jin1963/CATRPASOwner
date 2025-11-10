@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎁 CAT Package Referral Auto-Stake</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.4/dist/web3.min.js"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🎁 CAT Package Referral Auto-Stake</h1>
+
+    <div class="topbar">
+      <button id="btnConnect">เชื่อมต่อกระเป๋า</button>
+      <span id="wallet" class="mono">❌ ยังไม่เชื่อมต่อ</span>
+      <div class="muted">Contract: <span id="ca" class="mono">-</span> • Network: <span id="net" class="mono">-</span></div>
+    </div>
+
+    <section class="card">
+      <h2>👥 ผู้แนะนำ (Referrer)</h2>
+      <div class="row">
+        <input id="refInput" placeholder="ใส่ Address ของผู้นำแนะนำ (0x…)" />
+        <button id="btnLockRef">บันทึก Referrer</button>
+      </div>
+      <p class="muted">ระบบอ่าน ref จากพารามิเตอร์ <code>?ref=</code> อัตโนมัติเมื่อเชื่อมกระเป๋า</p>
+    </section>
+
+    <section class="card">
+      <h2>🔗 ลิงก์แนะนำของคุณ</h2>
+      <div class="row">
+        <input id="myRefLink" class="mono" readonly value="(เชื่อมกระเป๋าเพื่อสร้างลิงก์)">
+        <button id="btnCopyMyRef">คัดลอกลิงก์</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📦 แพ็กเกจที่เปิดให้ซื้อ</h2>
+      <div id="pkgWrap">กำลังโหลดแพ็กเกจ…</div>
+    </section>
+
+    <section class="card">
+      <h2>💰 รางวัล Referral (USDT)</h2>
+      <div class="row">
+        <div>สะสม: <b id="refUsdt" class="mono">-</b></div>
+        <div>เว้นช่วงเคลม: <b id="refInt" class="mono">-</b></div>
+        <button id="btnClaimRef">เคลม</button>
+      </div>
+      <p class="muted">โครงสร้าง 10% / 6% / 4% (ค่าจริงขึ้นกับพารามิเตอร์ในสัญญา)</p>
+    </section>
+
+    <section class="card">
+      <h2>📊 สรุปยอด Stake</h2>
+      <div id="totals" class="mono">รวม Principal: 0 CAT • รอเคลม: 0 CAT</div>
+    </section>
+
+    <section class="card">
+      <h2>📈 รายการ Stake ของคุณ</h2>
+      <div id="stakes">— ยังไม่มีรายการ —</div>
+      <p class="muted">แต่ละรายการจะแสดงวันเริ่ม, เคลมถัดไป, และสถานะถอนต้น</p>
+    </section>
+
+    <div id="toast" class="toast" style="display:none"></div>
+  </div>
+
+  <script src="public.js"></script>
+</body>
+</html>
