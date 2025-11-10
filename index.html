@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>🐱 CAT Owner Console</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <script src="config.js"></script>
+  <script src="owner.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🐱 CAT Owner Console</h1>
+    <button onclick="connectWallet()" class="btn">เชื่อมต่อกระเป๋า</button>
+    <p id="wallet">ยังไม่เชื่อมต่อ</p>
+
+    <h2>⚙️ ปรับพารามิเตอร์</h2>
+    <label>APR (bps)</label><input id="apr" placeholder="5000" />
+    <label>Stake Claim Interval (sec)</label><input id="claimInterval" placeholder="604800" />
+    <label>Lock Duration (sec)</label><input id="lockDuration" placeholder="15552000" />
+    <label>Ref1</label><input id="ref1" placeholder="1000" />
+    <label>Ref2</label><input id="ref2" placeholder="600" />
+    <label>Ref3</label><input id="ref3" placeholder="400" />
+    <label>Ref Claim Interval (sec)</label><input id="refClaimInterval" placeholder="0 = real-time" />
+    <button class="btn" onclick="setParams()">อัปเดต</button>
+
+    <h2>📦 ตั้งค่าแพ็กเกจ</h2>
+    <label>ID</label><input id="pkgId" placeholder="0" />
+    <label>USDT In</label><input id="usdtIn" placeholder="10" />
+    <label>CAT Out</label><input id="tokenOut" placeholder="1000" />
+    <label>Active</label>
+    <select id="active">
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </select>
+    <button class="btn" onclick="setPackage()">Set Package</button>
+
+    <h2>💰 ถอนเหรียญจากสัญญา</h2>
+    <label>Address ปลายทาง</label><input id="toCAT" placeholder="0x..." />
+    <label>จำนวน CAT</label><input id="amtCAT" placeholder="1000" />
+    <button class="btn" onclick="withdrawCAT()">ถอน CAT</button>
+    <label>Address ปลายทาง</label><input id="toUSDT" placeholder="0x..." />
+    <label>จำนวน USDT</label><input id="amtUSDT" placeholder="1000" />
+    <button class="btn" onclick="withdrawUSDT()">ถอน USDT</button>
+  </div>
+</body>
+</html>
