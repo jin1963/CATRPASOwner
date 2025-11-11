@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAT Package Referral Auto-Stake</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- คง Web3.js ตามของเดิม (public.js เดิมจะอ้างใช้) -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.4/dist/web3.min.js"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🎁 CAT Package Referral Auto-Stake</h1>
+
+    <div class="topbar">
+      <button id="btnConnect">เชื่อมต่อกระเป๋า</button>
+      <span id="wallet" class="mono">❌ ยังไม่เชื่อมต่อ</span>
+      <div class="muted">
+        Contract: <span id="ca" class="mono">-</span>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>👥 ผู้ผ่านแนะนำ (Referrer)</h2>
+      <div class="row">
+        <input id="refInput" placeholder="ใส่ Address ของผู้นำแนะนำ (0x…)" />
+        <button id="btnLockRef">บันทึก Referrer</button>
+      </div>
+      <p class="muted">
+        ระบบจะจำ Referrer อัตโนมัติ และอ่านได้จากพารามิเตอร์ <code>?ref=</code>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>🔗 ลิงก์แนะนำของคุณ</h2>
+      <div class="row">
+        <input id="myRefLink" class="mono" readonly value="(เชื่อมกระเป๋าเพื่อสร้างลิงก์)">
+        <button id="btnCopyMyRef">คัดลอกลิงก์</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>📦 แพ็กเกจที่เปิดให้ซื้อ</h2>
+      <div id="pkgWrap">กำลังโหลดแพ็กเกจ…</div>
+    </section>
+
+    <section class="card">
+      <h2>💰 รางวัล Referral (USDT)</h2>
+      <div class="row">
+        <div>สะสม: <b id="refUsdt" class="mono">-</b></div>
+        <button id="btnClaimRef">เคลม</button>
+      </div>
+      <p class="muted">
+        ระบบจ่ายเป็น <b>USDT</b> ตามเงื่อนไขในสัญญา (มีช่วงเวลารอเคลม)
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>📊 สรุปยอด Stake</h2>
+      <!-- เปลี่ยนหน่วย KJC -> CAT ให้ถูกต้อง -->
+      <div id="totals" class="mono">รวม Principal: 0 CAT • รอเคลม: 0 CAT</div>
+    </section>
+
+    <section class="card">
+      <h2>📈 รายการ Stake ของคุณ</h2>
+      <div id="stakes">ยังไม่มีรายการ</div>
+      <p class="muted">แต่ละรายการจะแสดงวันเริ่ม, เวลาเคลมถัดไป และวันที่ครบล็อก</p>
+    </section>
+
+    <div id="toast" class="toast" style="display:none"></div>
+
+    <!-- แถบข้อมูลอ้างอิง (ไม่บังคับ) -->
+    <footer class="muted" style="margin-top:24px">
+      <div>Stake Token (CAT): <span class="mono">
+        0xd1961485ad351D140DFB231De85d6D6Ec30AC6d5
+      </span></div>
+      <div>USDT (BEP-20): <span class="mono">
+        0x55d398326f99059fF775485246999027B3197955
+      </span></div>
+    </footer>
+  </div>
+
+  <script src="public.js"></script>
+</body>
+</html>
